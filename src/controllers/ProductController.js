@@ -12,6 +12,7 @@ const conexao = new Pool({
 
     async criar(request, response){
         const dados = request.body
+        
     }
 
     async listar(request, response){

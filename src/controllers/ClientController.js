@@ -17,7 +17,7 @@ const conexao = new Pool({
             const dados = request.body
 
           //***IF PARA DADOS OBRIGATÓRIOS E NAO NULOS */
-            /**SELECT ANTES PARA VERIFICAR SE O CPF já existe */
+            /**SELECT ANTES PARA VERIFICAR SE O CPF--unique-- já existe E EMAIL--unique--*/
             // if(!dados.cpf){
             // }
     
