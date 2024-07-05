@@ -40,7 +40,29 @@ class ProductController {
    
   }
 
-  async listar(request, response) {}
+  async listarTodos(request, response) {
+    try {
+      const requisicaoProdutos = request.query
+
+if(requisicaoProdutos.procura){
+const listaFiltrada = await conexao.query(
+`SELECT * FROM products
+where name ilike $1 OR color ilike $1 OR description ilike $1`,
+[`%${requisicaoProdutos.procura}%`]
+)
+response.json(listaFiltrada.rows)
+}
+else{
+  const listaCompleta = await conexao.query(
+    `SELECT * FROM products`
+  )
+  response.json(listaCompleta.rows)
+}
+
+    } catch (error) {
+      response.status(404).json({mensagem:"Erro ao listar produtos!"})
+    }
+  }
 
   async atualizar(request, response) {}
 

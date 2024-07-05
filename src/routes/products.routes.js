@@ -4,7 +4,7 @@ const ProductController = require("../controllers/ProductController")
 const productsRoutes = new Router()
 
 productsRoutes.post("/", ProductController.criar)
-productsRoutes.get("/", ProductController.listar)
+productsRoutes.get("/", ProductController.listarTodos)
 productsRoutes.put("/", ProductController.atualizar)
 productsRoutes.delete("/", ProductController.apagar)
 
