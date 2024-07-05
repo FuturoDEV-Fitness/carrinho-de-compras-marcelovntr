@@ -19,7 +19,7 @@ class ClientController {
         });
       }
 
-      const buscaCpfEmail = conexao.query(
+      const buscaCpfEmail = await conexao.query(
         `SELECT * FROM clients 
         where email = $1 OR cpf = $2`,
         [dados.email, dados.cpf]
@@ -33,7 +33,7 @@ class ClientController {
         `INSERT INTO clients (name, email, cpf, contact)
         VALUES(
         $1, $2, $3, $4) returning*`,
-        [dados.nome, dados.email, dados.cpf, dados.contact]
+        [dados.name, dados.email, dados.cpf, dados.contact]
       );
       response.status(201).json(clientSent.rows[0]);
     } catch (error) {
