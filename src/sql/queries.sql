@@ -52,3 +52,14 @@ create table orders(
 	references clients (id)
 
 )
+/*TABELA ORDERS_ITEMS*/
+create table orders_items(
+	
+    id serial primary key,
+    orders_id int not null,
+    products_id int not null,
+    amount int not null,
+    price decimal (10,2) not null, /*//<--preço no momento da compra, para consultas posteriores*/
+	foreign key (orders_id) references orders(id),
+	foreign key (products_id)references products(id)
+)
