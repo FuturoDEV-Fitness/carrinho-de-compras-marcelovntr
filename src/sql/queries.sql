@@ -65,7 +65,8 @@ create table orders_items(
 )
 
 /*LISTAR USANDO JOIN*/
-SELECT products.name, products.amount, products.color, products.voltage, products.description, categories.name
+SELECT products.name AS produto, categories.name AS tipo, products.amount AS estoque, products.color AS cores, 
+products.voltage AS voltagem, products.description AS descrição
 FROM products
 JOIN categories
 ON products.category_id = categories.id
