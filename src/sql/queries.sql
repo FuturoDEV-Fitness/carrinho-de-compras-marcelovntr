@@ -63,3 +63,10 @@ create table orders_items(
 	foreign key (orders_id) references orders(id),
 	foreign key (products_id)references products(id)
 )
+
+/*LISTAR USANDO JOIN*/
+SELECT products.name AS produto, categories.name AS tipo, products.amount AS estoque, products.color AS cores, 
+products.voltage AS voltagem, products.description AS descrição
+FROM products
+JOIN categories
+ON products.category_id = categories.id
