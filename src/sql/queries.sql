@@ -34,3 +34,21 @@ CONSTRAINT fk_category
 FOREIGN KEY(category_id) 
 REFERENCES categories(id)
 )
+
+alter table products 
+add column price decimal(10,2)
+
+
+/*TABELA ORDERS*/
+create table orders(
+	
+    id serial primary key,
+    client_id int not null,
+    total decimal (10,2) not null,
+    address TEXT not null,
+    observations varchar(200),
+	constraint fk_client
+	foreign key (client_id)
+	references clients (id)
+
+)
