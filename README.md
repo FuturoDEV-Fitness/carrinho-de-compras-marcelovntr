@@ -2,7 +2,11 @@ Carrinho de Compras
 
 ● Função
 
-O prejeto permite a simulação de ações na interação de uma interface com banco de dados. É possível cadastrar clientes, categorias de produtos e produtos com suas características. Com os dados disponíveis referentes a esses, é possível simular a requisições de compras com listas de produtos, assim armazenando os dados dos pedidos no banco, além de gravar os pedidos feitos com seus itens para posteriores consultas.
+O prejeto permite a simulação de ações na interação de uma interface com banco de dados.
+É possível cadastrar clientes, categorias de produtos e produtos com suas características.
+Com os dados disponíveis referentes a esses, é possível simular a requisições de compras
+com listas de produtos, assim armazenando os dados dos pedidos no banco, além de gravar
+os pedidos feitos com seus itens para posteriores consultas.
 ;
 
 ● Tecnologias utilizadas JavaScript, Node (Nodemon), Express, PostMan, PostgreSQL (pgAdmin), ;
@@ -24,13 +28,15 @@ Executar os seguintes comandos para instalar dependências de demais elementos:
 
 ● Melhorias cabíveis:
 
-    Introduzir no projeto uma classe que estabeleça a conexão com banco de dados, assim reutilizando o código por meio de importação;
-    Revisão de validações do corpo das requisições feitas para o banco de dados, a exemplo do preço dos produtos;
+    Introduzir no projeto uma classe que estabeleça a conexão com banco de dados, assim reutilizando
+    o código por meio de importação;
+    Revisão de validações do corpo das requisições feitas para o banco de dados, a exemplo do preço 
+    dos produtos;
     
 
 Vídeo explicativo:
 
-    https://drive.google.com/drive/u/0/folders/13zM___VB1K37QfbhuhZY9XL1geeUWfTQ *Errata: Quando se fala em não completude da função de cadastro, refere-se a edição de cadastro do usuário, função não obrigatória do aplicativo.
+    https://drive.google.com/drive/
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/dNOfMvCD)
