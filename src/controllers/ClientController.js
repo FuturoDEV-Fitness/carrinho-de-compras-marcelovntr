@@ -18,7 +18,16 @@ class ClientController {
           mensagem: "nome, email, CPF e contatos são dados obrigatórios!",
         });
       }
-
+      if (dados.cpf.length > 11 || dados.cpf.length < 11) {
+        return response.json({
+          mensagem: "CPF deve conter exatemente 8 dígitos (numéricos)",
+        });
+      }
+      if (dados.contact.length > 20) {
+        return response.json({
+          mensagem: "contato deve possui no máximo 20 caracteres",
+        });
+      }
       const buscaCpfEmail = await conexao.query(
         `SELECT * FROM clients 
         where email = $1 OR cpf = $2`,
@@ -26,7 +35,9 @@ class ClientController {
       );
 
       if (buscaCpfEmail.rows.length > 0) {
-        return response.status(401).json({mensagem: "email ou CPF fornecido já cadastrado!"})
+        return response
+          .status(401)
+          .json({ mensagem: "email ou CPF fornecido já cadastrado!" });
       }
 
       const clientSent = await conexao.query(

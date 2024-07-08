@@ -9,6 +9,10 @@ CREATE TABLE clients (
     contact VARCHAR(20) NOT NULL
 );
 
+ALTER TABLE clients 
+ALTER COLUMN cpf 
+SET DATA TYPE VARCHAR(11);
+
 /*CADASTRO DE PRODUTO*/
 create table categories(
 	id serial primary key,
