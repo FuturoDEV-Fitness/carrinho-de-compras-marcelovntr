@@ -86,6 +86,9 @@ where name ilike $1 OR color ilike $1 OR description ilike $1`,
     }
   }
 
+
+
+  /***************************************************** */
   async listarUmDetalhado(request, response) {
     try {
       const id = request.params.id;

@@ -9,7 +9,7 @@ com listas de produtos, assim armazenando os dados dos pedidos no banco, além d
 os pedidos feitos com seus itens para posteriores consultas.
 ;
 
-● Tecnologias utilizadas JavaScript, Node (Nodemon), Express, PostMan, PostgreSQL (pgAdmin), ;
+● Tecnologias utilizadas: JavaScript, Node (Nodemon), Express, PostMan, PostgreSQL (pgAdmin), ;
 
 ● Como executar:
 
@@ -32,6 +32,7 @@ Executar os seguintes comandos para instalar dependências de demais elementos:
     o código por meio de importação;
     Revisão de validações do corpo das requisições feitas para o banco de dados, a exemplo do preço 
     dos produtos;
+    Método GET para um produto com detalhamento necessita revisão da requisição, caso feita sem envio de id como parâmetro
     
 
 Vídeo explicativo:
