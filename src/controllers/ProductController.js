@@ -13,15 +13,41 @@ class ProductController {
     try {
       const dados = request.body;
 
+      /****************************** VALIDAÇÕES: *************************** */
+
       if (!dados.name || !dados.category_id) {
         return response.json({
           mensagem: "nome e identificador da categoria são obrigatórios!",
         });
       }
 
+      if (typeof dados.name !== "string") {
+        return response.json({
+          mensagem: "O nome deve ser uma string!",
+        });
+      }
+      if (typeof dados.amount !== "number" || !Number.isInteger(dados.amount)) {
+        return response.json({
+          mensagem: "A quantidade deve ser um número inteiro!",
+        });
+      }
+      if (dados.voltage !== "110" && dados.voltage !== "220") {
+        return response.json({
+          mensagem: "A voltagem deve ser 110 ou 220!",
+        });
+      }
+      if (typeof dados.category_id !== "number" || !Number.isInteger(dados.category_id)) {
+        return response.json({
+          mensagem: "O id da categoria deve ser um número inteiro!",
+        });
+      }
+
+     
+
+      /***************************QUERIES ***************************/
       const produtoInserido = await conexao.query(
-        `INSERT INTO products (name, amount, color, voltage, description, category_id)
-        VALUES($1, $2, $3, $4, $5, $6) returning*`,
+        `INSERT INTO products (name, amount, color, voltage, description, category_id, price)
+        VALUES($1, $2, $3, $4, $5, $6, $7) returning*`,
         [
           dados.name,
           dados.amount,
@@ -29,6 +55,7 @@ class ProductController {
           dados.voltage,
           dados.description,
           dados.category_id,
+          dados.price
         ]
       );
       response.status(201).json(produtoInserido.rows[0]);
@@ -59,16 +86,18 @@ where name ilike $1 OR color ilike $1 OR description ilike $1`,
     }
   }
 
-
   async listarUmDetalhado(request, response) {
     try {
       const id = request.params.id;
-          
+
+      //MUDAR ESSA VERIFICAÇÃO!!!! tirar esse isNaN
       if (!id || isNaN(id) || id <= 0) {
         console.log("ID inválido:", id);
-        return response.status(400).json({ mensagem: "ID do produto é obrigatório e deve ser um número válido!" });
+        return response.status(400).json({
+          mensagem: "ID do produto é obrigatório e deve ser um número válido!",
+        });
       }
- 
+
       const produtoBuscado = await conexao.query(
         `SELECT * FROM products
   where id = $1`,
